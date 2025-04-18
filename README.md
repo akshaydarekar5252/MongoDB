@@ -23,5 +23,8 @@ This is a simple chat-like web application built using **Node.js**, **Express.js
 - **Frontend:** HTML, EJS, CSS
 - **Extras:** Canvas Confetti JS
 
+##📸 Demo
+New Chat button triggers a celebration 🎉 with confetti before redirecting!
+<img width="944" alt="image" src="https://github.com/user-attachments/assets/983f4217-f827-4c8e-a233-22673ce7e44b" />
 
 
