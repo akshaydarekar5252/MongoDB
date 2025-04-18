@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini WhatsApp </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>All Chats!</h3>
+    <form method="get" action="/chats/new">
+        <button id="newChatBtn">New Chat</button>
+    </form>
+    <%for(let chat of chats) {%>
+        <div class="chat">
+           <p>From :  <i> <%= chat.from %></i></p>
+           <div class="msg">
+            <p>Message : <%= chat.msg %></p>
+            <form method="get" action="/chats/<%= chat._id %>/edit">
+                <button>Edit</button>
+            </form>
+            <br>
+            <form method="post" action="/chats/<%= chat._id %>?_method=DELETE">
+                <button>Delete</button>
+            </form>
+
+           </div>
+           <p>Received by <i> <%= chat.to %></i></p>
+           <hr>
+           <p><%= chat.created_at.toString().split(" ")[4]%></p>
+           <p><%= chat.created_at.toString().split(" ").slice(0,4).join("-")%></p>
+        </div>
+        <br><br>
+    <%}%>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        const newChatBtn = document.getElementById("newChatBtn");
+    
+        newChatBtn.addEventListener("click", function (e) {
+            e.preventDefault(); // Stop immediate navigation
+    
+            // 🎉 Confetti effect
+            confetti({
+                particleCount: 200,
+                spread: 100,
+                startVelocity: 50,
+                origin: { y: 0.6 }
+            });
+    
+            // Optional extra burst
+            setTimeout(() => {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }, 300);
+    
+            // Then redirect to new chat page
+            setTimeout(() => {
+                newChatBtn.closest('form').submit();
+            }, 1000);
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,149 @@
+
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background: #ece5dd;
+    margin: 0;
+    padding: 40px 20px;
+    color: #222;
+}
+
+
+h3 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #075e54;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* New Chat Button */
+form[action="/chats/new"] {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+form[action="/chats/new"] button {
+    background: linear-gradient(145deg, #25d366, #128c7e);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+form[action="/chats/new"] button:hover {
+    background: linear-gradient(145deg, #128c7e, #075e54);
+    transform: translateY(-2px);
+}
+
+/* Chat Bubble Card */
+.chat {
+    background: #ffffff;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.chat:hover {
+    transform: scale(1.015);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* Sender Info */
+.chat p:first-of-type {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Message Bubble */
+.msg {
+    background: #dcf8c6;
+    padding: 15px 20px;
+    border-radius: 15px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.msg::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    border: 10px solid transparent;
+    border-right-color: #dcf8c6;
+}
+
+/* Message Text */
+.msg p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Action Buttons */
+.msg form button {
+    background-color: #34b7f1;
+    margin-top: 10px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    border: none;
+    color: white;
+    margin-right: 8px;
+    transition: 0.2s ease-in-out;
+}
+
+.msg form button:hover {
+    background-color: #128c7e;
+}
+
+/* Receiver Info */
+.chat > p:nth-of-type(2) {
+    font-size: 14px;
+    color: #888;
+    margin-top: 10px;
+}
+
+/* Timestamp */
+.chat > p:nth-of-type(3),
+.chat > p:nth-of-type(4) {
+    font-size: 12px;
+    color: #aaa;
+    margin: 3px 0;
+    font-style: italic;
+}
+
+/* Divider */
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+/* Responsive */
+@media (max-width: 650px) {
+    .chat {
+        margin: 15px 10px;
+        padding: 15px;
+    }
+
+    h3 {
+        font-size: 28px;
+    }
+
+    .msg p {
+        font-size: 15px;
+    }
+}
